@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- Bootstrap core CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Material Design Bootstrap -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.5.4/css/mdb.min.css" rel="stylesheet">
+    <!-- Bootstrap core JavaScript -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.min.js"></script>
+    <!-- MDB core JavaScript -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.6.1/js/mdb.min.js"></script>
+</head>
+<body>
+
+<!-- Default form login -->
+<form th:action="@{/login}" class="text-center border border-light p-5" method="post">
+
+    <p class="h4 mb-4">Welcome Acme Bank Account Management System</p>
+
+    <!-- Email -->
+    <input type="text" id="defaultLoginFormEmail" name="username" class="form-control mb-4" placeholder="Username">
+
+    <!-- Password -->
+    <input type="password" id="defaultLoginFormPassword" name="password" class="form-control mb-4" placeholder="Password">
+
+    <!-- Sign in button -->
+    <button class="btn btn-info btn-block my-4" type="submit">Sign in</button>
+    <form th:action="@{/logout}" method="post">
+        <input type="submit" value="Log out" />
+    </form>
+
+</form>
+<!-- Default form login -->
+
+</body>
+</html>
