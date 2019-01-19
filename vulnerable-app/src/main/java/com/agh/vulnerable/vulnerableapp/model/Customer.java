@@ -1,6 +1,9 @@
 package com.agh.vulnerable.vulnerableapp.model;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.util.Set;
@@ -12,7 +15,21 @@ import java.util.Set;
  */
 @Entity
 @Data
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
 public class Customer {
+
+	public Customer(long id, String fullName, String username, String password, String identityNo, String phone, String address) {
+		this.Id = Id;
+		this.fullName = fullName;
+		this.username = username;
+		this.password = password;
+		this.identityNo = identityNo;
+		this.phone = phone;
+		this.address = address;
+
+	}
 
 	@Id
 	@GeneratedValue( strategy = GenerationType.IDENTITY)
@@ -33,4 +50,9 @@ public class Customer {
 	@OneToMany(mappedBy = "customer")
 	private Set<Account> accounts;
 
+	@Override
+	public String toString() {
+		return "Customer{" + "Id=" + Id + ", fullName='" + fullName + '\'' + ", username='" + username + '\'' + ", password='" + password + '\''
+				+ ", identityNo='" + identityNo + '\'' + ", phone='" + phone + '\'' + ", address='" + address + '\'' + '}';
+	}
 }

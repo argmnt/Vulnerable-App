@@ -1,5 +1,6 @@
 package com.agh.vulnerable.vulnerableapp.model;
 
+import lombok.Builder;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -11,11 +12,14 @@ import javax.persistence.*;
  */
 @Entity
 @Data
+@Builder
 public class Account {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
+
+	private String accountNumber;
 
 	private double balance;
 
