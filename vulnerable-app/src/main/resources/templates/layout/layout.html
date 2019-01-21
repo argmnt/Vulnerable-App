@@ -55,8 +55,8 @@
                     <li class="nav-item" th:classappend="${#httpServletRequest.requestURI.startsWith('/customer')} ? ' active' : '' ">
                         <a th:href="@{/customer/1}" class="nav-link" href="#">Customer Info</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/transactions">Transactions</a>
+                    <li class="nav-item" th:classappend="${#httpServletRequest.requestURI.startsWith('/transactions')} ? ' active' : '' ">
+                        <a class="nav-link" th:href="@{/transactions/1}">Transactions</a>
                     </li>
 
                     <!-- Dropdown -->

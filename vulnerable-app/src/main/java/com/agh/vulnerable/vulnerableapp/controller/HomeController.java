@@ -66,11 +66,11 @@ public class HomeController {
 		return "customerIndex";
 	}
 
-	@GetMapping(value = {"/transaction/{id}"})
+	@GetMapping(value = {"/transactions/{id}"})
 	public String showTransaction(@PathVariable String id, Model model) {
 		List<Transaction> transactions = transactionService.getTransactions(id);
 		model.addAttribute("transactions", transactions);
-		return "home";
+		return "transactions";
 	}
 
 }

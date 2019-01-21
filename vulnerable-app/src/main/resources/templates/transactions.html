@@ -17,7 +17,7 @@
                             <h4 class="mb-2 mb-sm-0 pt-1">
                                 <a href="https://mdbootstrap.com/material-design-for-bootstrap/" target="_blank">Home Page /</a>
                             </h4>
-                            <h5 class="mt-2 ml-1">Customer</h5>
+                            <h5 class="mt-2 ml-1">Transactions</h5>
                         </div>
 
 
@@ -34,21 +34,20 @@
 
             <thead>
             <tr>
-                <th>#</th>
-                <th>Description</th>
-                <th>Deposit IBAN</th>
-                <th>Date</th>
+                <th><i class="material-icons">swap_vert</i></th>
+                <th>Description <i class="material-icons ml-1">description</i></th>
+                <div class="row"></div>
+                <th>Deposit IBAN<i class="material-icons ml-1">account_balance_wallet</i></th>
+                <th>Date <i class="material-icons ml-1">date_range</i></th>
             </tr>
             </thead>
 
             <tbody>
-            <tr>
-                <th scope="row">1</th>
-                <td th:text="${customer.username}">customer1</td>
-                <td th:text="${customer.fullName}">
-                    <!--<button type="button" class="btn btn-teal btn-rounded btn-sm m-0">Samuel CastroButton</button>-->
-                </td>
-                <td th:text="${customer.address}">25 Ford Street
+            <tr th:each="transaction : ${transactions}">
+                <th scope="row" th:text="${transactionStat.index + 1}">1</th>
+                <td th:text="${transaction.description}">customer1</td>
+                <td th:text="${transaction.depositIban}">DepositIban</td>
+                <td th:text="${transaction.date.toString()}">25 Ford Street
                     Washington 53345</td>
             </tr>
             </tbody>
