@@ -25,7 +25,7 @@
         </main>
 
 
-        <section class="text-center my-5">
+        <section class="text-center my-3">
 
 
             <!-- Grid row -->
@@ -50,27 +50,27 @@
                             <!-- Category & Title -->
                             <h4 class="card-title">
                                 <strong>
-                                    <i class="material-icons md-48">face</i><a href="">John Doe</a>
+                                    <i class="material-icons md-48">face</i><a th:href="'/customer/'+${account.id}">[[${username}]]</a>
                                 </strong>
                             </h4>
-                            <p >
-                                <h5><i class="material-icons md-48">credit_card</i>Iban : 993948329483294832</h5>
+                            <p>
+                                <h5><i class="material-icons md-48">credit_card</i>Iban : [[${account.accountNumber}]]</h5>
                             </p>
                             <!-- Description -->
-                            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing minima veniam elit.</p>
+                            <p class="card-text">Banking score is <strong class="text-info">[[${account.bankingScore}]]</strong></p>
                             <!-- Card footer -->
                             <div class="card-footer px-1">
-            <span class="float-left font-weight-bold">Balance:
-              <strong class="text-success">2160$</strong>
-            </span>
+                                <span class="float-left font-weight-bold">Balance:
+                                  <strong style="color: #147839;">[[${account.balance}]]<i class="material-icons">euro_symbol</i></strong>
+                                </span>
                                 <span class="float-right">
-              <a class="" data-toggle="tooltip" data-placement="top" title="Quick Look">
-                <i class="fas fa-eye grey-text ml-3"></i>
-              </a>
-              <a class="" data-toggle="tooltip" data-placement="top" title="Add to Wishlist">
-                <i class="fas fa-heart grey-text ml-3"></i>
-              </a>
-            </span>
+                                  <a href="#" data-toggle="tooltip" data-placement="top" title="Quick Look">
+                                      Active
+                                  </a>
+                                  <a href="#" data-toggle="tooltip" data-placement="top" title="Add to Wishlist">
+                                    <i style="color: lightseagreen" class="material-icons md-48">check</i>
+                                  </a>
+                                </span>
                             </div>
                         </div>
                         <!-- Card content -->
@@ -84,6 +84,61 @@
 
         </section>
         <!-- Section: Products v.2 -->
+
+        <!-- Side Modal Top Right -->
+        <!-- To change the direction of the modal animation change .right class -->
+        <div class="modal fade right" id="sideModalTR" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+
+            <!-- Add class .modal-side and then add class .modal-top-right (or other classes from list above) to set a position to the modal -->
+            <div class="modal-dialog modal-side modal-top-right" role="document">
+
+
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title w-100" id="myModalLabel">Modal title</h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <table class="table table-bordered">
+                            <thead>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">First</th>
+                                <th scope="col">Last</th>
+                                <th scope="col">Handle</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <th scope="row">1</th>
+                                <td>Mark</td>
+                                <td>Otto</td>
+                                <td>@mdo</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">2</th>
+                                <td>Jacob</td>
+                                <td>Thornton</td>
+                                <td>@fat</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">3</th>
+                                <td colspan="2">Larry the Bird</td>
+                                <td>@twitter</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary">Save changes</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Side Modal Top Right -->
 
 
     </div>
