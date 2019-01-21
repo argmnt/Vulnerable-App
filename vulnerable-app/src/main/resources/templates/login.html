@@ -16,24 +16,44 @@
 </head>
 <body>
 
-<!-- Default form login -->
-<form th:action="@{/login}" class="text-center border border-light p-5" method="post">
 
-    <p class="h4 mb-4">Welcome Acme Bank Account Management System</p>
 
-    <!-- Email -->
-    <input type="text" id="defaultLoginFormEmail" name="username" class="form-control mb-4" placeholder="Username">
 
-    <!-- Password -->
-    <input type="password" id="defaultLoginFormPassword" name="password" class="form-control mb-4" placeholder="Password">
 
-    <!-- Sign in button -->
-    <button class="btn btn-info btn-block my-4" type="submit">Sign in</button>
-    <form th:action="@{/logout}" method="post">
-        <input type="submit" value="Log out" />
+<!-- Jumbotron -->
+<div class="jumbotron text-center">
+
+    <!-- Title -->
+    <h4 class="card-title indigo-text h4 pb-2"><strong>Welcome Acme&reg; Bank Account Management System</strong></h4>
+
+    <!-- Card image -->
+    <div style="height: 100px;" class="view overlay mx-auto my-4">
+        <img src="https://mdbootstrap.com/img/Photos/Slides/img%20(70).jpg" class="img-fluid" alt="">
+        <a href="#">
+            <div class="mask rgba-white-slight"></div>
+        </a>
+    </div>
+
+    <form th:action="@{/login}" class="text-center border border-light p-5" method="post">
+
+        <!-- Email -->
+        <input type="text" id="defaultLoginFormEmail" name="username" class="form-control mb-4" placeholder="Username">
+
+        <!-- Password -->
+        <input type="password" id="defaultLoginFormPassword" name="password" class="form-control mb-4" placeholder="Password">
+
+        <!-- Sign in button -->
+        <button class="btn btn-info btn-block my-4" type="submit">Sign in</button>
+
     </form>
 
-</form>
+</div>
+<!-- Jumbotron -->
+
+
+
+<!-- Default form login -->
+
 <!-- Default form login -->
 
 </body>
