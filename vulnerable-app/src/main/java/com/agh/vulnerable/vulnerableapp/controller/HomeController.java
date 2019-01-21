@@ -2,10 +2,13 @@ package com.agh.vulnerable.vulnerableapp.controller;
 
 import com.agh.vulnerable.vulnerableapp.model.Account;
 import com.agh.vulnerable.vulnerableapp.model.Customer;
+import com.agh.vulnerable.vulnerableapp.model.Transaction;
 import com.agh.vulnerable.vulnerableapp.repository.AccountCustomRepository;
 import com.agh.vulnerable.vulnerableapp.repository.AccountRepository;
 import com.agh.vulnerable.vulnerableapp.repository.CustomerCustomRepository;
 import com.agh.vulnerable.vulnerableapp.repository.CustomerRepository;
+import com.agh.vulnerable.vulnerableapp.service.CustomerService;
+import com.agh.vulnerable.vulnerableapp.service.TransactionService;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -34,6 +37,10 @@ public class HomeController {
 
 	private final CustomerCustomRepository customerCustomRepository;
 
+	private final CustomerService customerService;
+
+	private final TransactionService transactionService;
+
 	@GetMapping(value = { "", "/"})
 	public String showhome(Model model,Principal principal) {
 
@@ -53,9 +60,17 @@ public class HomeController {
 	}
 
 	@GetMapping(value = {"/customer/{id}"})
-	public String showCustomer(@PathVariable String id) {
-		List<Object[]> customer = customerCustomRepository.getCustomer(id);
+	public String showCustomer(@PathVariable String id, Model model) {
+		Customer customer = customerService.getCustomer(id);
+		model.addAttribute("customer", customer);
 		return "customerIndex";
+	}
+
+	@GetMapping(value = {"/transaction/{id}"})
+	public String showTransaction(@PathVariable String id, Model model) {
+		List<Transaction> transactions = transactionService.getTransactions(id);
+		model.addAttribute("transactions", transactions);
+		return "home";
 	}
 
 }

@@ -34,7 +34,7 @@
         <nav class="navbar navbar-expand-lg navbar-dark special-color-dark">
 
             <!-- Navbar brand -->
-            <a class="navbar-brand" href="/">Acme</a>
+            <a th:href="@{/}" class="navbar-brand" href="">Acme Corp&reg</a>
 
             <!-- Collapse button -->
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#basicExampleNav"
@@ -47,26 +47,26 @@
 
                 <!-- Links -->
                 <ul class="navbar-nav mr-auto">
-                    <li class="nav-item active">
+                    <li class="nav-item" th:classappend="${#httpServletRequest.requestURI == '/'} ? ' active' : '' ">
                         <a class="nav-link" href="/">Home
                             <span class="sr-only">(current)</span>
                         </a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Features</a>
+                    <li class="nav-item" th:classappend="${#httpServletRequest.requestURI.startsWith('/customer')} ? ' active' : '' ">
+                        <a th:href="@{/customer/1}" class="nav-link" href="#">Customer Info</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Pricing</a>
+                        <a class="nav-link" href="/transactions">Transactions</a>
                     </li>
 
                     <!-- Dropdown -->
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
-                           aria-expanded="false">Dropdown</a>
+                           aria-expanded="false">Hints</a>
                         <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
-                            <a class="dropdown-item" href="#">Action</a>
-                            <a class="dropdown-item" href="#">Another action</a>
-                            <a class="dropdown-item" href="#">Something else here</a>
+                            <a class="dropdown-item" href="/deneme">Action</a>
+                            <a class="dropdown-item" href="/deneme">Another action</a>
+                            <a class="dropdown-item" href="/deneme">Something else here</a>
                         </div>
                     </li>
 

@@ -6,7 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import java.util.Set;
+import java.time.LocalDate;
 
 /**
  * Created on January, 2019
@@ -16,26 +16,21 @@ import java.util.Set;
 @Entity
 @Data
 @Builder
-@NoArgsConstructor
 @AllArgsConstructor
-public class Account {
+@NoArgsConstructor
+public class Transaction {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private long id;
-
-	private String accountNumber;
-
-	private double balance;
-
-	private double bankingScore;
-
-	private boolean active;
+	private long Id;
 
 	@ManyToOne
-	private Customer customer;
+	private Account withdrawAccount;
 
-	@OneToMany(mappedBy = "withdrawAccount")
-	private Set<Transaction> transactions;
+	private String description;
+
+	private String depositIban;
+
+	private LocalDate date;
 
 }

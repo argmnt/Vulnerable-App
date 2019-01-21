@@ -14,14 +14,15 @@ import java.util.List;
  */
 @Component
 @AllArgsConstructor
-public class CustomerCustomRepository {
+public class TransactionCustomRepository {
 
 	@PersistenceContext
 	private final EntityManager entityManager;
 
 	public List<Object[]> getCustomer(String id) {
-		List<Object[]> customer = entityManager.createNativeQuery("select * from Customer where ID="+id).getResultList();
-		return customer;
+		List<Object[]> transactons = entityManager.createNativeQuery("select * from Transaction "
+																		  + "where WITHDRAW_ACCOUNT_ID="+id).getResultList();
+		return transactons;
 	}
 
 }
