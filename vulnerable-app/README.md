@@ -12,6 +12,10 @@
 * Spring Security
 
 
+###Login
+
+*  username= customer1
+* password= password
 
 
 #####Cyber Security Project
