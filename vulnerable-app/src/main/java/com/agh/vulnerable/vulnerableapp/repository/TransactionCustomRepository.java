@@ -19,7 +19,7 @@ public class TransactionCustomRepository {
 	@PersistenceContext
 	private final EntityManager entityManager;
 
-	public List<Object[]> getCustomer(String id) {
+	public List<Object[]> getTransactions(String id) {
 		List<Object[]> transactons = entityManager.createNativeQuery("select * from Transaction "
 																		  + "where WITHDRAW_ACCOUNT_ID="+id).getResultList();
 		return transactons;

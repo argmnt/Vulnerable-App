@@ -22,11 +22,12 @@ public class TransactionService {
 	private final TransactionCustomRepository transactionCustomRepository;
 
 	public List<Transaction> getTransactions(String id) {
-		List<Object[]> transactionObjectList = transactionCustomRepository.getCustomer(id);
+		List<Object[]> transactionObjectList = transactionCustomRepository.getTransactions(id);
 		List<Transaction> transactions = new ArrayList<>();
 		//Transactions Added
 		transactionObjectList.forEach(transaction -> {
-			Transaction transactionWillBeAdded = Transaction.builder().date(LocalDate.parse(transaction[1].toString(),DateTimeFormatter.ofPattern("yyyy-MM-dd")))
+			Transaction transactionWillBeAdded = Transaction.builder().date(LocalDate.parse(transaction[1].toString(),
+																							DateTimeFormatter.ofPattern("yyyy-MM-dd")))
 					.depositIban(transaction[2].toString()).description(transaction[3].toString()).build();
 			transactions.add(transactionWillBeAdded);
 		});
