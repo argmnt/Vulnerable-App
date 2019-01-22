@@ -1,6 +1,6 @@
 ##Vulnerable Bank Web Application
 
-#####Not operatable banking application which contains mock data for training, and making experiments
+#####Not operatable banking application which contains mock data for **training**, and making __experiments__
 
 #### USED:
 
